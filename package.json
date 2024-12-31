@@ -12,6 +12,9 @@
   "license": "MIT",
   "description": "e-commerce rest api",
   "dependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
     "bcrypt": "^5.1.1",
     "bson": "^6.10.1",
     "colors": "^1.4.0",
@@ -20,6 +23,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.2",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "web-vitals": "^4.2.4"
   }
 }
