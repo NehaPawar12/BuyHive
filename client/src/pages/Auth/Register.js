@@ -12,6 +12,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
+    const [question, setQuestion] = useState('');
     const navigate = useNavigate(); // Correct usage
 
     // Form function
@@ -24,6 +25,7 @@ const Register = () => {
                 password,
                 phone,
                 address,
+                question,
             });
 
             if (res.data.success) {
@@ -41,8 +43,9 @@ const Register = () => {
     return (
         <Layout title={'Register BuyHive'}>
             <div className="form-container">
-                <h1>Register Page</h1>
+                
                 <form onSubmit={handleSubmit}>
+                    <h4 className='title'>Register Form</h4>
                     <div className="mb-3">
                         <input
                             type="text"
@@ -90,6 +93,16 @@ const Register = () => {
                             onChange={(e) => setAddress(e.target.value)}
                             className="form-control"
                             placeholder="Enter address"
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <input
+                            type="text"
+                            value={question}
+                            onChange={(e) => setQuestion(e.target.value)}
+                            className="form-control"
+                            placeholder="What is your Favorite Sports"
                             required
                         />
                     </div>
