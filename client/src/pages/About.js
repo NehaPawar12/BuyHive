@@ -1,9 +1,10 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
+import { keyboard } from "@testing-library/user-event/dist/cjs/keyboard/index.js";
 
 const About = () => {
   return (
-    <Layout>
+    <Layout title={'About us - Ecommerce'}>
       <div className="row contactus ">
         <div className="col-md-6 ">
           <img
@@ -26,5 +27,12 @@ const About = () => {
     </Layout>
   );
 };
+
+Layout.defaultProps={
+  title : 'BuyHive - E-commerce',
+  description : 'mern project',
+  keywords:'mern,react,node, mongodb,react_icon',
+  author:'Neha Pawar'
+}
 
 export default About;
