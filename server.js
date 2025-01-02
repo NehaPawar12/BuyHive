@@ -6,6 +6,7 @@ import connectDB from './config/db.js';
 // import { JS_INT_MAX } from './node_modules/bson/src/constants';
 // const colors = require('colors')
 import authRoutes from './routes/authRoute.js'
+import categoryRoutes from './routes/categoryRoutes.js'
 import cors from 'cors'
 
 
@@ -27,6 +28,7 @@ App.use(morgan('dev'))
 
 //routes
 App.use('/api/v1/auth',authRoutes)
+App.use('/api/v1/category',categoryRoutes)
 
 //rest api
 App.get('/', (req,res) => {
