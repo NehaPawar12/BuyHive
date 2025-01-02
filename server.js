@@ -7,6 +7,7 @@ import connectDB from './config/db.js';
 // const colors = require('colors')
 import authRoutes from './routes/authRoute.js'
 import categoryRoutes from './routes/categoryRoutes.js'
+import productRoutes from './routes/productRoutes.js'
 import cors from 'cors'
 
 
@@ -29,6 +30,7 @@ App.use(morgan('dev'))
 //routes
 App.use('/api/v1/auth',authRoutes)
 App.use('/api/v1/category',categoryRoutes)
+App.use('/api/v1/product',productRoutes)
 
 //rest api
 App.get('/', (req,res) => {
