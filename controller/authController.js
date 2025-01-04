@@ -118,40 +118,46 @@ export const loginController = async (req, res) => {
 
 export const forgotPasswordController = async (req, res) => {
   try {
-    const { email, answer, newPassword } = req.body;
+    const { email, answer } = req.body;
+    const newPassword = req.body.newPassword || req.body.newpassword; // Support both field names
+
+    console.log("Forgot Password Request:", req.body); // Debugging log
+
     if (!email) {
-      res.status(400).send({ message: "Emai is required" });
+      return res.status(400).send({ message: "Email is required" });
     }
     if (!answer) {
-      res.status(400).send({ message: "answer is required" });
+      return res.status(400).send({ message: "Answer is required" });
     }
     if (!newPassword) {
-      res.status(400).send({ message: "New Password is required" });
+      return res.status(400).send({ message: "New Password is required" });
     }
-    //check
+
     const user = await userModel.findOne({ email, answer });
-    //validation
     if (!user) {
       return res.status(404).send({
         success: false,
-        message: "Wrong Email Or Answer",
+        message: "Wrong Email or Security Answer",
       });
     }
+
     const hashed = await hashPassword(newPassword);
     await userModel.findByIdAndUpdate(user._id, { password: hashed });
-    res.status(200).send({
+
+    return res.status(200).send({
       success: true,
       message: "Password Reset Successfully",
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).send({
+    console.error("Forgot Password Error:", error);
+    return res.status(500).send({
       success: false,
       message: "Something went wrong",
-      error,
+      error: error.message || error,
     });
   }
 };
+
 
 //test controller
 export const testController = (req, res) => {
@@ -218,20 +224,21 @@ export const getOrdersController = async (req, res) => {
 export const getAllOrdersController = async (req, res) => {
   try {
     const orders = await orderModel
-      .find({})
+      .find()
       .populate("products", "-photo")
       .populate("buyer", "name")
-      .sort({ createdAt: "-1" });
+      .sort({ createdAt: -1 }); // Corrected here
     res.json(orders);
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error WHile Geting Orders",
+      message: "Error While Getting Orders",
       error,
     });
   }
 };
+
 
 //order status
 export const orderStatusController = async (req, res) => {

@@ -59,7 +59,7 @@ router.get("/product-count", productCountController)
 router.get("/product-list/:page", productListController)
 
 //Search Product
-router.get('/search',searchProductController)
+router.get('/search/:keyword',searchProductController)
 
 //Similar Products
 router.get('/related-product/:pid/:cid', relatedProductController)

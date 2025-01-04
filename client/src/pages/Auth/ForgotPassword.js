@@ -2,27 +2,25 @@ import React, { useState } from 'react';
 import Layout from './../../components/Layout/Layout';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import { useNavigate} from 'react-router-dom';
-import '../../styles/AuthStyles.css'
-
+import { useNavigate } from 'react-router-dom';
+import '../../styles/AuthStyles.css';
 
 const ForgotPassword = () => {
-
     const [email, setEmail] = useState('');
-    const [newpassword, setNewPassword] = useState('');
-    const [question, setQuestion] = useState('');
+    const [newPassword, setNewPassword] = useState(''); // Updated field name
+    const [answer, setAnswer] = useState('');
 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/api/v1/auth/forgot-password", {
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, {
                 email,
-                newpassword,
-                question
+                newPassword, // Updated field name
+                answer,
             });
-    
+
             if (res && res.data.success) {
                 toast.success(res.data && res.data.message);
                 navigate('/login'); // Navigate to login page
@@ -35,13 +33,12 @@ const ForgotPassword = () => {
         }
     };
 
-  return (
-    <Layout title={'Forgot Password - BuyHive'}>
-<div className="form-container">
-                
+    return (
+        <Layout title={'Forgot Password - BuyHive'}>
+            <div className="form-container">
                 <form onSubmit={handleSubmit}>
-                    <h4 className='title'>Reset Password</h4>
-                    
+                    <h4 className="title">Reset Password</h4>
+
                     <div className="mb-3">
                         <input
                             type="email"
@@ -55,31 +52,31 @@ const ForgotPassword = () => {
                     <div className="mb-3">
                         <input
                             type="text"
-                            value={question}
-                            onChange={(e) => setQuestion(e.target.value)}
+                            value={answer}
+                            onChange={(e) => setAnswer(e.target.value)}
                             className="form-control"
-                            placeholder="Enter your Favorite sports"
+                            placeholder="Enter your favorite sport"
                             required
                         />
                     </div>
                     <div className="mb-3">
                         <input
                             type="password"
-                            value={newpassword}
+                            value={newPassword} // Updated field name
                             onChange={(e) => setNewPassword(e.target.value)}
                             className="form-control"
-                            placeholder="Enter Password"
+                            placeholder="Enter new password"
                             required
                         />
-                    </div>    
-    
+                    </div>
+
                     <button type="submit" className="btn btn-primary">
                         RESET
                     </button>
                 </form>
             </div>
-    </Layout>
-  )
-}
+        </Layout>
+    );
+};
 
-export default ForgotPassword
+export default ForgotPassword;
