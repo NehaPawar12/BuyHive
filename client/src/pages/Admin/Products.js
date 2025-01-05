@@ -4,7 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import "./Products.css"; // Import CSS for custom styling
+import "../../styles/Products.css"; // Import custom CSS
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -40,37 +40,28 @@ const Products = () => {
                 products.map((p) => (
                   <div
                     key={p._id}
-                    className="col-md-4 col-sm-6 mb-4 d-flex align-items-stretch"
+                    className="col-lg-4 col-md-6 col-sm-12 mb-4"
                   >
-                    <div className="card product-card shadow">
-                      <Link to={`/dashboard/admin/product/${p.slug}`}>
-                        <img
-                          src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                          className="card-img-top"
-                          alt={p.name}
-                          style={{
-                            height: "200px",
-                            objectFit: "cover",
-                          }}
-                        />
-                      </Link>
-                      <div className="card-body d-flex flex-column">
-                        <h5 className="card-title text-truncate">{p.name}</h5>
-                        <p className="card-text text-muted text-truncate">
-                          {p.description}
-                        </p>
-                        <p className="card-price fw-bold text-primary mb-3">
-                          ${p.price}
-                        </p>
-                        <Link
-                          to={`/dashboard/admin/product/${p.slug}`}
-                          className="btn btn-primary btn-sm mt-auto"
-                        >
-                          Edit Product
-                        </Link>
-                      </div>
+                    <div className="card product-card">
+  <Link to={`/dashboard/admin/product/${p.slug}`}>
+    <img
+      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+      className="product-image"
+      alt={p.name}
+    />
+  </Link>
+  <div className="card-body">
+    <h5 className="card-title">{p.name}</h5>
+    <p className="card-text">{p.description.substring(0, 50)}...</p> {/* Show only 50 characters */}
+    <p className="card-price">${p.price}</p>
+    <Link to={`/dashboard/admin/product/${p.slug}`} className="btn btn-primary">
+      Edit Product
+    </Link>
+  </div>
+</div>
+
                     </div>
-                  </div>
+                  
                 ))
               ) : (
                 <div className="col-12 text-center">

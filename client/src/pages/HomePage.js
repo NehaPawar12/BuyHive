@@ -4,13 +4,11 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
-import "./HomePage.css"; // Import CSS file for custom styling
+import "../styles/HomePage.css"; // Import CSS file for custom styling
 import { useCart } from "../context/cart";
-import toast from 'react-hot-toast'
-
+import toast from "react-hot-toast";
 
 const HomePage = () => {
-
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
@@ -21,7 +19,7 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  //get all cat
+  // Get all categories
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
@@ -37,7 +35,8 @@ const HomePage = () => {
     getAllCategory();
     getTotal();
   }, []);
-  //get products
+
+  // Get all products
   const getAllProducts = async () => {
     try {
       setLoading(true);
@@ -50,7 +49,7 @@ const HomePage = () => {
     }
   };
 
-  //getTotal Count
+  // Get total count
   const getTotal = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-count`);
@@ -65,7 +64,7 @@ const HomePage = () => {
     loadMore();
   }, [page]);
 
-  //load more
+  // Load more
   const loadMore = async () => {
     try {
       setLoading(true);
@@ -73,12 +72,12 @@ const HomePage = () => {
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
-      console.log(error);
       setLoading(false);
+      console.log(error);
     }
   };
 
-  // filter by cat
+  // Filter by category
   const handleFilter = (value, id) => {
     let all = [...checked];
     if (value) {
@@ -88,6 +87,7 @@ const HomePage = () => {
     }
     setChecked(all);
   };
+
   useEffect(() => {
     if (!checked.length || !radio.length) getAllProducts();
   }, [checked.length, radio.length]);
@@ -96,7 +96,7 @@ const HomePage = () => {
     if (checked.length || radio.length) filterProduct();
   }, [checked, radio]);
 
-  //get filtered product
+  // Get filtered product
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
@@ -110,7 +110,7 @@ const HomePage = () => {
   };
 
   return (
-    <Layout title={"All Products - Best offers "}>
+    <Layout title={"All Products - Best Offers"}>
       <div className="container-fluid row mt-3">
         <div className="col-md-2 filter-section">
           <h4 className="text-center">Filter By Category</h4>
@@ -147,34 +147,34 @@ const HomePage = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap justify-content-center">
             {products?.map((p) => (
-              <div className="card m-2 product-card" style={{ width: "18rem" }} key={p._id}>
-                <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
-                    {p.description.substring(0, 30)}...
-                  </p>
-                  <p className="card-text"> $ {p.price}</p>
-                  <button className="btn btn-primary ms-1 " onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
-                  <button
-                    className="btn btn-secondary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }}
-                  >
-                    ADD TO CART
-                  </button>
-                </div>
+              <div className="card m-3 product-card" key={p._id}>
+              <img
+                src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                className="card-img-top"
+                alt={p.name}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{p.name}</h5>
+                <p className="card-text">{p.description.substring(0, 30)}...</p>
+                <p className="card-price">Rs. {p.price}</p>
+                <button
+                  className="btn btn-primary mb-2"
+                  onClick={() => navigate(`/product/${p.slug}`)}
+                >
+                  More Details
+                </button>
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => {
+                    setCart([...cart, p]);
+                    localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                    toast.success("Item Added to cart");
+                  }}
+                >
+                  Add to Cart
+                </button>
               </div>
+            </div>
             ))}
           </div>
           <div className="m-2 p-3 text-center">
@@ -186,7 +186,7 @@ const HomePage = () => {
                   setPage(page + 1);
                 }}
               >
-                {loading ? "Loading ..." : "Loadmore"}
+                {loading ? "Loading ..." : "Load More"}
               </button>
             )}
           </div>

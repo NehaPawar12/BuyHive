@@ -1,0 +1,132 @@
+/* General Styling */
+body {
+  background-color: #f3f4f6;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+.container-fluid {
+  margin-top: 30px;
+}
+
+/* Navbar Styling */
+.navbar {
+  height: 70px; /* Increased navbar height */
+  font-size: 1.2rem; /* Slightly larger font */
+}
+
+/* Header */
+h1, h4 {
+  font-weight: 700;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #1e2a3a;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Product Card Styling */
+.product-card {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  max-width: 350px; /* Increased max width */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px; /* Increased height */
+  object-fit: contain;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-card .card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.product-card .card-title {
+  color: #1e2a3a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.product-card .card-text {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.product-card .card-price {
+  color: #28a745; /* Green color for price */
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-card .btn-primary,
+.product-card .btn-secondary {
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 100%; /* Full-width buttons for vertical alignment */
+}
+
+.product-card .btn-primary {
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.product-card .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.product-card .btn-secondary {
+  background-color: rgb(245, 164, 13);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.product-card .btn-secondary:hover {
+  background-color: #d9940b;
+}
+
+/* Center Align Buttons */
+.product-card .card-body .btn {
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-card {
+    max-width: 100%; /* Full-width cards for smaller screens */
+  }
+
+  .product-card img {
+    height: 200px; /* Adjusted image size for responsiveness */
+  }
+
+  .navbar {
+    font-size: 1rem; /* Adjusted font size */
+  }
+}
