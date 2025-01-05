@@ -1,0 +1,43 @@
+/* Admin Dashboard Styles */
+.admin-dashboard-container {
+    padding: 20px;
+    background: linear-gradient(to bottom, #f9f9f9, #e8e8e8);
+    min-height: 100vh;
+  }
+  
+  .admin-details-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .admin-details-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .admin-detail .label {
+    font-weight: bold;
+    color: #f39c12;
+    margin-right: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-dashboard-container {
+      padding: 10px;
+    }
+  
+    .admin-details-card {
+      padding: 20px;
+    }
+  
+    .admin-details-card h3 {
+      font-size: 16px;
+    }
+  }
+  

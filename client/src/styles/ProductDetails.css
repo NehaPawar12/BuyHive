@@ -1,0 +1,132 @@
+/* ProductDetails.css */
+
+/* General container for product details */
+.product-details-container {
+    margin-top: 30px;
+  }
+  
+  /* Styling for the product detail row */
+  .product-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  /* Styling for product image */
+  .product-image-container img {
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the product info section */
+  .product-info {
+    max-width: 500px;
+    padding: 20px;
+  }
+  
+  .product-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3e50;
+  }
+  
+  .product-description {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 15px;
+    text-align: justify;
+  }
+  
+  .product-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #28a745; /* Green color for the price */
+    margin-top: 20px;
+  }
+  
+  .product-category {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 10px;
+  }
+  
+  /* Styling for the 'Add to Cart' button */
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for similar products section */
+  .similar-products-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2d3e50;
+  }
+  
+  .related-product-card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .related-product-img {
+    object-fit: contain;
+    max-height: 250px;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .card-text {
+    color: #555;
+  }
+  
+  .button-group button {
+    width: 48%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .button-group button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsive layout adjustments */
+  @media (max-width: 768px) {
+    .product-detail-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product-info {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .related-product-card {
+      margin-bottom: 20px;
+    }
+  }
+  

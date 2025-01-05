@@ -1,24 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "../../styles/UserMenu.css"; // Import the CSS for styles
+
 const UserMenu = () => {
   return (
-    <div>
-      <div className="text-center">
-        <div className="list-group">
-          <h4>Dashboard</h4>
-          <NavLink
-            to="/dashboard/user/profile"
-            className="list-group-item list-group-item-action"
-          >
-            Profile
-          </NavLink>
-          <NavLink
-            to="/dashboard/user/orders"
-            className="list-group-item list-group-item-action"
-          >
-            Orders
-          </NavLink>
-        </div>
+    <div className="user-menu-container">
+      <div className="user-menu text-center">
+        <h4 className="user-menu-heading">Dashboard</h4>
+        <NavLink
+          to="/dashboard/user/profile"
+          className="user-menu-item"
+          activeClassName="active"
+        >
+          Profile
+        </NavLink>
+        <NavLink
+          to="/dashboard/user/orders"
+          className="user-menu-item"
+          activeClassName="active"
+        >
+          Orders
+        </NavLink>
       </div>
     </div>
   );

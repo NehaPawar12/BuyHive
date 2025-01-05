@@ -1,0 +1,120 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #ffffff; /* White background for navbar */
+    padding: 15px 20px;
+    border-bottom: 2px solid #ddd; /* Light border for separation */
+  }
+  
+  .navbar-toggler {
+    border-color: #000000; /* Black color for the toggler */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #000000; /* Black icon for toggler */
+  }
+  
+  /* Logo styles */
+  .navbar-brand {
+    font-size: 24px;
+    color: #000000 !important; /* Black color for the logo */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand svg {
+    margin-right: 8px; /* Space between icon and text */
+  }
+  
+  /* Navbar links */
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .nav-item {
+    margin: 0 15px;
+  }
+  
+  .nav-link {
+    color: #000000 !important; /* Black color for links */
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #f39c12 !important; /* Gold color on hover */
+  }
+  
+  /* Dropdown menu */
+  .navbar-nav .dropdown-menu {
+    background-color: #f1f1f1; /* Light background for dropdown */
+  }
+  
+  .navbar-nav .dropdown-item {
+    color: #000000;
+    padding: 10px 20px;
+  }
+  
+  .navbar-nav .dropdown-item:hover {
+    background-color: #f39c12; /* Gold background on hover */
+    color: white;
+  }
+  
+  /* Cart Badge */
+  .nav-item .ant-badge-count {
+    background-color: #e74c3c; /* Red for cart badge */
+  }
+  
+  .nav-item .ant-badge-count.show-zero {
+    background-color: #bdc3c7; /* Grey for zero count */
+  }
+  
+  /* Search Input */
+  .search-input input {
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    width: 250px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input input:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+  }
+  
+  .search-input button {
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #f39c12;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-input button:hover {
+    background-color: #e67e22;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 991px) {
+    .navbar-brand {
+      font-size: 20px;
+    }
+  
+    .nav-link {
+      font-size: 14px;
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 0 10px;
+    }
+  }
+  

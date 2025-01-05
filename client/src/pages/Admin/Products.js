@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import AdminMenu from "../../components/Layout/AdminMenu";
-import Layout from "./../../components/Layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import "./Products.css"; // Add a CSS file for custom styling if needed
+import "./Products.css"; // Import CSS for custom styling
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -17,8 +17,8 @@ const Products = () => {
       );
       setProducts(data.products);
     } catch (error) {
-      console.log(error);
-      toast.error("Something Went Wrong");
+      console.error(error);
+      toast.error("Something went wrong while fetching products.");
     }
   };
 
@@ -27,8 +27,8 @@ const Products = () => {
   }, []);
 
   return (
-    <Layout>
-      <div className="container-fluid p-4">
+    <Layout title="Dashboard - All Products">
+      <div className="products-container container-fluid p-4">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
@@ -42,7 +42,7 @@ const Products = () => {
                     key={p._id}
                     className="col-md-4 col-sm-6 mb-4 d-flex align-items-stretch"
                   >
-                    <div className="card product-card shadow-sm">
+                    <div className="card product-card shadow">
                       <Link to={`/dashboard/admin/product/${p.slug}`}>
                         <img
                           src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
@@ -51,8 +51,6 @@ const Products = () => {
                           style={{
                             height: "200px",
                             objectFit: "cover",
-                            borderTopLeftRadius: "calc(0.25rem - 1px)",
-                            borderTopRightRadius: "calc(0.25rem - 1px)",
                           }}
                         />
                       </Link>
@@ -61,14 +59,15 @@ const Products = () => {
                         <p className="card-text text-muted text-truncate">
                           {p.description}
                         </p>
-                        <div className="mt-auto">
-                          <Link
-                            to={`/dashboard/admin/product/${p.slug}`}
-                            className="btn btn-primary btn-block"
-                          >
-                            Edit Product
-                          </Link>
-                        </div>
+                        <p className="card-price fw-bold text-primary mb-3">
+                          ${p.price}
+                        </p>
+                        <Link
+                          to={`/dashboard/admin/product/${p.slug}`}
+                          className="btn btn-primary btn-sm mt-auto"
+                        >
+                          Edit Product
+                        </Link>
                       </div>
                     </div>
                   </div>

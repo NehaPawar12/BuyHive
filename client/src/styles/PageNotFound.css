@@ -1,0 +1,117 @@
+/* PageNotFound.css */
+
+/* Container for centering content */
+.pnf-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f7f7f7;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Content area */
+  .pnf-content {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .pnf-content:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Title (404) */
+  .pnf-title {
+    font-size: 100px;
+    color: #ff3b30;
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: bounceIn 1s ease-in-out;
+  }
+  
+  /* Heading (Oops!) */
+  .pnf-heading {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  /* Description (extra info) */
+  .pnf-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  /* Button Style */
+  .pnf-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pnf-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pnf-button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Animation for Title */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .pnf-container {
+      padding: 20px;
+    }
+  
+    .pnf-content {
+      width: 100%;
+      padding: 25px;
+    }
+  
+    .pnf-title {
+      font-size: 80px;
+    }
+  
+    .pnf-heading {
+      font-size: 1.5rem;
+    }
+  
+    .pnf-description {
+      font-size: 1rem;
+    }
+  
+    .pnf-button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+  

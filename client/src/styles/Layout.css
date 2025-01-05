@@ -1,0 +1,30 @@
+/* Layout.css */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  .main-content {
+    flex: 1; /* Allow the main content to take up remaining space */
+    min-height: 70vh; /* Ensures the main content area has a minimum height */
+    margin-bottom: 5vh; /* Margin at the bottom to ensure space between content and footer */
+  }
+  
+  footer {
+    padding: 20px 0;
+    background-color: #f8f9fa; /* Light grey background for footer */
+    text-align: center;
+  }
+  
+  header {
+    background-color: #fff; /* White background for header */
+    box-shadow: 0 4px 2px -2px gray; /* Optional shadow for header */
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 20px;
+    }
+  }
+  

@@ -1,0 +1,43 @@
+/* Create Category Styles */
+.create-category-container {
+    background-color: #f7f9fc;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .category-header h1 {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .category-form-container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .category-list-container {
+    margin-top: 20px;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  
+  .modal-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .ant-modal-body {
+    padding: 20px;
+  }
+  

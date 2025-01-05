@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/ProductDetails.css"; // Importing custom CSS for styling
 
 const ProductDetails = () => {
   const params = useParams();
@@ -39,24 +40,24 @@ const ProductDetails = () => {
 
   return (
     <Layout>
-      <div className="container mt-4">
+      <div className="container mt-5 product-details-container">
         {/* Product Details */}
-        <div className="row">
-          <div className="col-md-6 d-flex justify-content-center align-items-center">
+        <div className="row product-detail-row">
+          <div className="col-md-6 product-image-container">
             <img
               src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
-              className="img-fluid rounded shadow"
+              className="img-fluid product-image"
               alt={product.name}
-              style={{ maxHeight: "300px", objectFit: "contain" }}
             />
           </div>
-          <div className="col-md-6">
-            <h1 className="text-center mb-4">Product Details</h1>
-            <h6><strong>Name:</strong> {product.name}</h6>
-            <h6><strong>Description:</strong> {product.description}</h6>
-            <h6><strong>Price:</strong> ${product.price}</h6>
-            <h6><strong>Category:</strong> {product?.category?.name}</h6>
-            <button className="btn btn-secondary mt-3">ADD TO CART</button>
+          <div className="col-md-6 product-info">
+            <h1 className="product-title">{product.name}</h1>
+            <p className="product-description">{product.description}</p>
+            <p className="product-price">${product.price}</p>
+            <p className="product-category">Category: {product?.category?.name}</p>
+            <button className="btn btn-primary add-to-cart-btn mt-3">
+              ADD TO CART
+            </button>
           </div>
         </div>
 
@@ -64,34 +65,33 @@ const ProductDetails = () => {
 
         {/* Similar Products */}
         <div>
-          <h4 className="text-center mb-4">Similar Products</h4>
+          <h4 className="text-center similar-products-title mb-4">Similar Products</h4>
           {relatedProducts.length < 1 ? (
             <p className="text-center">No Similar Products Found</p>
           ) : (
-            <div className="row">
+            <div className="row related-products-row">
               {relatedProducts.map((p) => (
                 <div className="col-md-4 col-sm-6 mb-4" key={p._id}>
-                  <div className="card shadow-sm h-100">
+                  <div className="card related-product-card">
                     <img
                       src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p?._id}`}
-                      className="card-img-top"
+                      className="card-img-top related-product-img"
                       alt={p.name}
-                      style={{ objectFit: "contain", maxHeight: "200px" }}
                     />
-                    <div className="card-body d-flex flex-column">
+                    <div className="card-body">
                       <h5 className="card-title">{p.name}</h5>
+                      <p className="card-text">{p.description.substring(0, 30)}...</p>
                       <p className="card-text">
-                        {p.description.substring(0, 30)}...
+                        <strong>Price:</strong> ${p.price}
                       </p>
-                      <p className="card-text"><strong>Price:</strong> ${p.price}</p>
-                      <div className="mt-auto">
+                      <div className="button-group mt-auto">
                         <button
-                          className="btn btn-primary me-2"
+                          className="btn btn-outline-primary"
                           onClick={() => navigate(`/product/${p.slug}`)}
                         >
                           More Details
                         </button>
-                        <button className="btn btn-secondary">ADD TO CART</button>
+                        <button className="btn btn-outline-secondary">ADD TO CART</button>
                       </div>
                     </div>
                   </div>

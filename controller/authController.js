@@ -260,3 +260,33 @@ export const orderStatusController = async (req, res) => {
     });
   }
 };
+
+
+export const getAllUserController = async (req, res) => {
+  try {
+    // Fetch all users
+    const users = await userModel.find({}).select("-password"); // Exclude passwords for security
+
+    // Check if users exist
+    if (!users || users.length === 0) {
+      return res.status(404).send({
+        success: false,
+        message: "No users found",
+      });
+    }
+
+    // Respond with users
+    res.status(200).send({
+      success: true,
+      message: "Users fetched successfully",
+      users,
+    });
+  } catch (error) {
+    console.error("Error in fetching users:", error);
+    res.status(500).send({
+      success: false,
+      message: "Error in fetching users",
+      error: error.message,
+    });
+  }
+};
