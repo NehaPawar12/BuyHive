@@ -39,10 +39,10 @@ App.use('/api/v1/category',categoryRoutes)
 App.use('/api/v1/product',productRoutes)
 
 //rest api
-App.use('*',function(req, res)){
+App.use('*',function(req, res){
     res.sendFile(path.join(__dirname,'./client/build/index.html'))
 
-}
+})
 
 //PORT
 const PORT = process.env.PORT || 8000;
