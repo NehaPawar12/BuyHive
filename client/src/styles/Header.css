@@ -1,21 +1,21 @@
 /* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
   }
   
   /* Navbar Styles */
   .navbar {
     background-color: #ffffff; /* White background for navbar */
-    padding: 15px 20px;
+    padding: 0px 0px;
     border-bottom: 2px solid #ddd; /* Light border for separation */
   }
   
   .navbar-toggler {
-    border-color: #000000; /* Black color for the toggler */
+    border-color: #0a0909; /* Black color for the toggler */
   }
   
   .navbar-toggler-icon {
-    background-color: #000000; /* Black icon for toggler */
+    background-color: white; /* Black icon for toggler */
   }
   
   /* Logo styles */
@@ -72,7 +72,7 @@ body {
   }
   
   .nav-item .ant-badge-count.show-zero {
-    background-color: #bdc3c7; /* Grey for zero count */
+    background-color: #b7dbf3; /* Grey for zero count */
   }
   
   /* Search Input */

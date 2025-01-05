@@ -1,36 +1,36 @@
 .footer {
-    background: linear-gradient(to right, #bdc3d7, #000000); /* Light grey to dark grey gradient */
-    padding: 40px 20px;
-    color: white;
-    text-align: center;
-  }
-  
-  .footer h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .footer p {
-    margin-top: 20px;
-    font-size: 16px;
-  }
-  
-  .footer a {
-    color: #ecf0f1; /* Light grey color for links */
-    text-decoration: none;
-    font-weight: 500;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-  }
-  
-  .footer a:hover {
-    color: #ffeaa7; /* Light yellow color on hover */
-  }
-  
-  .footer p a {
-    padding: 0 10px;
-  }
+  background: linear-gradient(to right, #bdc3d7, #000000); /* Light grey to dark grey gradient */
+  padding: 20px 10px; /* Reduced padding */
+  color: white;
+  text-align: center;
+}
 
-  .footer h4{
-    color: #ffffff;
-  }
+.footer h4 {
+  font-size: 20px; /* Reduced font size */
+  margin-bottom: 10px; /* Reduced margin */
+}
+
+.footer p {
+  margin-top: 10px; /* Reduced margin */
+  font-size: 17px; /* Reduced font size */
+}
+
+.footer a {
+  color: #ecf0f1; /* Light grey color for links */
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 8px; /* Reduced margin */
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffeaa7; /* Light yellow color on hover */
+}
+
+.footer p a {
+  padding: 0 8px; /* Reduced padding */
+}
+
+.footer h4 {
+  color: #ffffff;
+}
