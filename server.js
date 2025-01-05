@@ -8,7 +8,9 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoute.js'
 import categoryRoutes from './routes/categoryRoutes.js'
 import productRoutes from './routes/productRoutes.js'
-import cors from 'cors'
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 
@@ -18,6 +20,9 @@ dotevn.config()
 //db config
 connectDB()
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename)
+
 //rest obj
 const App = express()
 
@@ -26,6 +31,7 @@ const App = express()
 App.use(cors())
 App.use(express.json())
 App.use(morgan('dev'))
+App.use(express.static(path.join(__dirname, './client/build')))
 
 //routes
 App.use('/api/v1/auth',authRoutes)
@@ -33,12 +39,10 @@ App.use('/api/v1/category',categoryRoutes)
 App.use('/api/v1/product',productRoutes)
 
 //rest api
-App.get('/', (req,res) => {
-    // res.send({
-    //     message:"Welcome to E-commerce App"
-    // })
-    res.send('<h1>Welcome To BuyHive</h1>')
-})
+App.use('*',function(req, res)){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'))
+
+}
 
 //PORT
 const PORT = process.env.PORT || 8000;
